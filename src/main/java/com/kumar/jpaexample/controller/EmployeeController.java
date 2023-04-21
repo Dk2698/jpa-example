@@ -64,4 +64,21 @@ public class EmployeeController {
                                                        @PathVariable String sortProperty){
         return  employeeService.getEmployeePagination(pageNumber, pageSize, sortProperty);
     }
+
+
+
+    @GetMapping(value = "/findEmployeesByDesignationAndActiveData/{activeState}/{designationList}")
+    public List<Employee> findEmployeesByDesignationAndActiveData(@PathVariable boolean activeState,
+                                                       @PathVariable List<String> designationList){
+        return  employeeService.findEmployeesByDesignationAndActiveData(activeState, designationList);
+    }
+
+
+    @PutMapping("/updateEmployeeState/{activeState}/{empIdList}")
+    public  int updateEmployeeState(
+            @PathVariable Boolean activeState,
+            @PathVariable List<Long> empIdList
+    ){
+        return  employeeService.updateEmployeeState(activeState, empIdList);
+    }
 }

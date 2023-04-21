@@ -11,10 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 public class Employee {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long empId;
     private String name;
     private Integer age;
+    private  boolean active= true;
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber = "9999999999";
     private String designation;

@@ -24,7 +24,7 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployees() {
-        return  employeeRepository.findAll();
+        return  employeeRepository.findAllEmployeesQuery();
     }
 
     public Employee getEmployeeById(Long empId) {
@@ -53,5 +53,14 @@ public class EmployeeService {
 
 
         return  employeeRepository.findAll(pageable);
+    }
+
+    public List<Employee> findEmployeesByDesignationAndActiveData(boolean activeState, List<String> designationList) {
+
+        return employeeRepository.findAllEmployeeByDesignationAndActiveQuery(activeState,designationList);
+    }
+
+    public int updateEmployeeState(Boolean activeState, List<Long> empIdList) {
+        return employeeRepository.updateEmployeeStateByEmployeeId(activeState,empIdList);
     }
 }
