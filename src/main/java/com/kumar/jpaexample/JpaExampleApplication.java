@@ -11,17 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class JpaExampleApplication {
 
-	@Autowired
-	private FlightBookingService service;
-
-
-	@PostMapping("/bookFlightTicket")
-	public FlightBookingAcknowledgement bookFlightTicket(@RequestBody FlightBookingRequest request){
-		return service.bookFlightTicket(request);
-	}
 
 
 	public static void main(String[] args) {
